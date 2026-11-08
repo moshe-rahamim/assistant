@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מדיניות פרטיות - Personal Assistant</title>
+<meta name="description" content="מדיניות הפרטיות של Personal Assistant: איך התוכנה ניגשת להקלטות Google Meet ב-Google Drive של המשתמש, ומה נעשה במידע.">
+<style>
+  :root { --text:#1f2328; --muted:#57606a; --link:#0b57d0; --bg:#ffffff; --line:#d0d7de; --soft:#f6f8fa; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:Arial, "Segoe UI", sans-serif; font-size:17px; line-height:1.7; }
+  main { max-width:760px; margin:0 auto; padding:32px 20px 48px; }
+  h1 { font-size:1.6rem; line-height:1.3; margin:0 0 8px; }
+  h2 { font-size:1.15rem; margin:32px 0 8px; }
+  p, li { margin:0 0 10px; }
+  ul { padding-inline-start:22px; margin:0 0 12px; }
+  a { color:var(--link); text-underline-offset:3px; overflow-wrap:anywhere; }
+  a:focus-visible { outline:3px solid var(--link); outline-offset:2px; }
+  code { font-family:Consolas, monospace; font-size:0.92em; background:var(--soft); padding:1px 4px; border-radius:3px; overflow-wrap:anywhere; direction:ltr; unicode-bidi:embed; }
+  .updated { color:var(--muted); margin-bottom:24px; }
+  .note { background:var(--soft); border:1px solid var(--line); border-radius:6px; padding:12px 14px; }
+  .en { border-top:2px solid var(--line); margin-top:48px; padding-top:24px; }
+  nav { margin-bottom:20px; }
+</style>
+</head>
+<body>
+<main>
+  <nav><a href="index.html">לעמוד הבית</a> · <a href="#english">English</a></nav>
+
+  <h1>מדיניות פרטיות - Personal Assistant</h1>
+  <p class="updated">עודכן לאחרונה: 8 בנובמבר 2026</p>
+
+  <h2>1. על מה המסמך הזה</h2>
+  <p>"Personal Assistant" היא תוכנת עוזר אישי שמותקנת ורצה במחשב Windows של המשתמש. המסמך הזה עוסק רק באפשרות אחת שלה: החיבור לחשבון Google של המשתמש, שדרכו התוכנה קוראת הקלטות של Google Meet מה-Google Drive שלו, ובמה שקורה למידע שמתקבל דרך החיבור הזה.</p>
+
+  <h2>2. מי מספק את התוכנה</h2>
+  <p>את התוכנה כתב ומספק משה מנחם דושניצקי, ישראל. יצירת קשר: <a href="mailto:mmd9404265@gmail.com">mmd9404265@gmail.com</a>.</p>
+  <p>התוכנה רצה במחשב של המשתמש. המפתח לא מפעיל שרת עבור החיבור הזה. המידע שמתקבל מ-Google לא נשלח למפתח ולא נשמר אצלו.</p>
+
+  <h2>3. איזו גישה מתבקשת מ-Google</h2>
+  <p>החיבור מבקש הרשאה אחת בלבד: <code>https://www.googleapis.com/auth/drive.meet.readonly</code>. זו הרשאת קריאה בלבד, ש-Google מגבילה לקבצי Google Drive שנוצרו או נערכו על ידי Google Meet.</p>
+  <p>המשתמש מתחבר בדפדפן. לפעמים צריך להתחבר שוב, למשל אם הגישה בוטלה או פגה. התוכנה לא משנה, לא מזיזה, לא משתפת ולא מוחקת שום דבר ב-Google Drive.</p>
+
+  <h2>4. מה התוכנה עושה עם המידע</h2>
+  <p>רק אם המשתמש הפעיל את האפשרות והתחבר:</p>
+  <ul>
+    <li>התוכנה רצה כמשימה ברקע כל עוד המשתמש מחובר ל-Windows. בפעם הראשונה היא מאתרת ב-Drive את תיקיית הקלטות Meet לפי שמה, ומאז, בערך פעם ברבע שעה, קוראת את פרטי הקבצים שבה: שם, תאריכים, גודל, סוג, מזהה ופרטי הבעלים.</li>
+    <li>הקלטת וידאו חדשה מורדת למחשב. כברירת מחדל, הקלטות מלפני היום שבו האפשרות הופעלה לא מורדות.</li>
+    <li>מהעותק שהורד מופק קובץ שמע, ואז העותק המקומי של הווידאו נמחק. ההקלטה המקורית נשארת ב-Drive כמו שהיא.</li>
+    <li>השמע מתומלל במחשב עצמו, במודל זיהוי דיבור שמותקן במחשב. השמע לא נשלח לשירות תמלול חיצוני.</li>
+    <li>כדי לכתוב סיכום, התמלול נשלח, יחד עם שם ההקלטה ושעותיה, ל-Claude של Anthropic, דרך התוכנה Claude Code שמותקנת אצל המשתמש ובחשבון Claude של המשתמש עצמו. הקלטה קצרה משתי דקות מתומללת בלבד ולא נשלחת לסיכום.</li>
+    <li>בשלב הסיכום, Claude עשוי לעיין ביומן, במייל ובחיבורים אחרים שהמשתמש חיבר לחשבון Claude שלו (למשל Zoom), ובקובצי הזיכרון של העוזר במחשב, כדי לזהות את המשתתפים ואת נושא הפגישה. החיבורים האלה נפרדים מהאפליקציה שמתוארת כאן.</li>
+    <li>אם המשתמש חיבר לעוזר קבוצת WhatsApp, נשלחות אליה עד 12 השורות הראשונות של הסיכום, כולל הנושא ושמות המשתתפים. במקרה של תקלה נשלחת לשם גם הודעה שעשויה לכלול את שם קובץ ההקלטה.</li>
+  </ul>
+
+  <h2>5. מה נשמר ואיפה</h2>
+  <p>במחשב של המשתמש נשמרים:</p>
+  <ul>
+    <li>בתיקיית הפגישה, בתוך <code>פלט\פגישות</code> שבתיקיית העוזר: קובץ השמע, התמלול, הסיכום, הקובץ <code>name.txt</code> וקובץ מצב שכולל את מזהה הקובץ ב-Drive. שם התיקייה כולל את התאריך, הנושא ושמות המשתתפים.</li>
+    <li>קובץ האינדקס <code>פלט\פגישות\אינדקס.md</code>: שורה לכל פגישה, עם תאריך, נושא ושמות משתתפים.</li>
+    <li>בתיקייה <code>%USERPROFILE%\.assistant\meetings</code>: <code>meet-seen.json</code> (מזהי ההקלטות שכבר טופלו), <code>meet-folder.txt</code> (מזהה תיקיית ההקלטות), <code>meet-error.txt</code> (התקלה האחרונה, אם הייתה) ו-<code>meetings.log</code> (יומן פעולות שכולל שמות של קבצים).</li>
+    <li>אסימוני הגישה ל-Google ופרטי החיבור שמורים בקובץ <code>rclone.conf.dpapi</code>, מוצפנים בהצפנה של Windows (DPAPI) לחשבון Windows של המשתמש. בזמן פעולה מול Drive הם נפתחים לקובץ זמני רגיל, שנמחק בסוף הפעולה, או בפעולה הבאה אם הפעולה נקטעה.</li>
+  </ul>
+  <p>התוכנה לא קובעת תקופת שמירה ולא מוחקת את הקבצים האלה מעצמה, חוץ מ-<code>meet-error.txt</code>, שנמחק כשהבדיקה הבאה מצליחה. הם נשארים במחשב עד שהמשתמש מוחק אותם או מסיר את התוכנה (סעיף 9).</p>
+  <p>מה שנשלח ל-Claude ולקבוצת WhatsApp נשמר אצל השירותים האלה לפי התנאים שלהם.</p>
+
+  <h2>6. מה לא נעשה במידע</h2>
+  <ul>
+    <li>המפתח לא מקבל את המידע, לא מוכר אותו, לא משתמש בו לפרסום ולא משתמש בו לאימון מודלים.</li>
+    <li>התוכנה לא שולחת למפתח שום מידע מעצמה. אם המשתמש בוחר לפנות למפתח לתמיכה, המשתמש מחליט מה לשלוח.</li>
+  </ul>
+
+  <h2>7. מדיניות נתוני המשתמש של Google ו-Claude</h2>
+  <p class="note" lang="en" dir="ltr">Personal Assistant's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+  <p>בעברית: השימוש של Personal Assistant במידע שמתקבל מממשקי Google, והעברתו לכל אפליקציה אחרת, יעמדו במדיניות נתוני המשתמש של שירותי ה-API של Google, כולל דרישות השימוש המוגבל (Limited Use).</p>
+  <p>כך התוכנה בנויה: המידע מועבר ל-Claude רק כדי להכין את הסיכום. תנאי להפעלת האפשרות הוא שהמשתמש מכבה בחשבון Claude שלו את ההגדרה "Help improve Claude" (<a href="https://claude.ai/settings/data-privacy-controls">https://claude.ai/settings/data-privacy-controls</a>). בלי אישור של המשתמש שההגדרה כבויה, התוכנה לא מורידה הקלטות. המפתח לא שולט בהגדרה הזאת ולא באופן שבו Anthropic מטפלת במידע. הטיפול כפוף לתנאים של Anthropic: <a href="https://www.anthropic.com/legal/privacy">https://www.anthropic.com/legal/privacy</a>.</p>
+  <p>מה שנשלח לקבוצת WhatsApp כפוף לתנאים של WhatsApp: <a href="https://www.whatsapp.com/legal/privacy-policy">https://www.whatsapp.com/legal/privacy-policy</a>.</p>
+
+  <h2>8. ביטול הגישה</h2>
+  <p>המשתמש יכול לבטל בכל עת את הגישה של האפליקציה לחשבון Google שלו: <a href="https://myaccount.google.com/permissions">https://myaccount.google.com/permissions</a>. אחרי הביטול התוכנה לא יכולה לקרוא עוד מה-Drive.</p>
+
+  <h2>9. הסרת התוכנה</h2>
+  <ul>
+    <li>הסרת התוכנה ("תסיר את עצמך") מתזמנת מחיקה של תיקיית העוזר ושל קובצי אסימוני הגישה, בתוך כ-3 דקות או בכניסה הבאה ל-Windows.</li>
+    <li>אם המשתמש בוחר לשמור את הזיכרון, נשארים בתיקייה <code>%USERPROFILE%\.assistant\meetings</code> רשימת ההקלטות שטופלו, מזהה התיקייה, היומן וקובץ התקלה האחרונה, וגם הזיכרון שנשמר ב-<code>%USERPROFILE%\העוזר-זיכרון-שמור</code>.</li>
+    <li>התוכנה לא מוודאת שהמחיקה הושלמה. המשתמש יכול לבדוק ולמחוק בעצמו.</li>
+    <li>ההסרה לא מבטלת את ההרשאה בחשבון Google. את זה עושים בקישור שבסעיף 8.</li>
+  </ul>
+
+  <h2>10. הקלטת משתתפים</h2>
+  <p>דרך החיבור ל-Google התוכנה רק קוראת הקלטות ש-Google Meet כבר שמר. לתוכנה יש אפשרות נפרדת להקליט פגישות במחשב, והיא לא משתמשת במידע מ-Google. המשתמש אחראי לוודא שההקלטה והשימוש בה חוקיים לפי הדין שחל עליו.</p>
+
+  <h2>11. שאלות, עדכונים ואירוח העמוד</h2>
+  <p>שאלות על המסמך: <a href="mailto:mmd9404265@gmail.com">mmd9404265@gmail.com</a>. המידע עצמו נמצא במחשב של המשתמש ובחשבון Google שלו, והמשתמש יכול לעיין בו ולמחוק אותו ישירות.</p>
+  <p>תאריך העדכון האחרון מופיע בראש העמוד. שימוש חדש במידע מ-Google יופעל רק אחרי הודעה למשתמש וקבלת הסכמתו.</p>
+  <p>העמוד הזה לא משתמש בעוגיות ולא בכלי מעקב או סטטיסטיקה. GitHub, שמארח את העמוד, רושם נתוני גישה כמו כתובת IP לפי מדיניות הפרטיות שלו.</p>
+
+  <section class="en" id="english" lang="en" dir="ltr">
+    <h1>Privacy Policy - Personal Assistant</h1>
+    <p class="updated">Last updated: 8 November 2026</p>
+
+    <h2>1. What this covers</h2>
+    <p>"Personal Assistant" is a personal-assistant program installed on and running on the user's own Windows PC. This policy covers only one feature: the connection to the user's Google account through which the program reads the user's Google Meet recordings from Google Drive, and what happens to data received through that connection.</p>
+
+    <h2>2. Who provides the software</h2>
+    <p>The software is written and provided by Moshe Menachem Dushnitzky, Israel. Contact: <a href="mailto:mmd9404265@gmail.com">mmd9404265@gmail.com</a>.</p>
+    <p>The program runs on the user's PC. The developer runs no server for this connection. Data received from Google is not sent to the developer and is not stored by him.</p>
+
+    <h2>3. Access requested from Google</h2>
+    <p>One scope only: <code>https://www.googleapis.com/auth/drive.meet.readonly</code>. It is read-only, and Google limits it to Drive files created or edited by Google Meet.</p>
+    <p>The user signs in in the browser. Sign-in may need to be repeated, for example if access was revoked or expired. The program does not change, move, share or delete anything in Google Drive.</p>
+
+    <h2>4. What the program does with the data</h2>
+    <p>Only if the user enabled the feature and signed in:</p>
+    <ul>
+      <li>The program runs as a background task while the user is signed in to Windows. The first time, it looks up the Meet recordings folder in Drive by name; from then on, about every 15 minutes, it reads the file details in it: name, dates, size, type, ID and owner details.</li>
+      <li>A new video recording is downloaded to the PC. By default, recordings from before the day the feature was enabled are not downloaded.</li>
+      <li>Audio is extracted from the downloaded copy, and then the local video copy is deleted. The original recording stays in Drive unchanged.</li>
+      <li>The audio is transcribed on the PC itself, with a speech model installed on the PC. The audio is not sent to an external transcription service.</li>
+      <li>To write a summary, the transcript, with the recording's name and times, is sent to Claude (Anthropic) through Claude Code installed on the user's PC, under the user's own Claude account. Recordings shorter than two minutes are only transcribed and are not sent for a summary.</li>
+      <li>During the summary step, Claude may consult the calendar, email and other connectors the user connected to their Claude account (for example Zoom), and the assistant's memory files on the PC, to identify the participants and the topic. Those connections are separate from the app described here.</li>
+      <li>If the user connected a WhatsApp group to the assistant, up to the first 12 lines of the summary are sent there, including the topic and participant names. If an error occurs, a message that may include the recording's file name is also sent there.</li>
+    </ul>
+
+    <h2>5. What is stored and where</h2>
+    <p>Stored on the user's PC:</p>
+    <ul>
+      <li>In the meeting folder, inside <code>פלט\פגישות</code> in the assistant folder: the audio file, the transcript, the summary, the file <code>name.txt</code> and a status file that includes the Drive file ID. The folder name includes the date, topic and participant names.</li>
+      <li>The index file <code>פלט\פגישות\אינדקס.md</code>: one line per meeting, with date, topic and participant names.</li>
+      <li>In <code>%USERPROFILE%\.assistant\meetings</code>: <code>meet-seen.json</code> (IDs of recordings already processed), <code>meet-folder.txt</code> (the recordings folder ID), <code>meet-error.txt</code> (the last error, if any) and <code>meetings.log</code> (an activity log that includes file names).</li>
+      <li>The Google access tokens and connection details are kept in <code>rclone.conf.dpapi</code>, encrypted with Windows encryption (DPAPI) for the user's Windows account. During a Drive operation they are opened into a plain temporary file, which is deleted at the end of the operation, or at the next operation if it was interrupted.</li>
+    </ul>
+    <p>The program sets no retention period and does not delete these files on its own, except <code>meet-error.txt</code>, which is deleted when the next check succeeds. They stay on the PC until the user deletes them or removes the program (section 9).</p>
+    <p>What is sent to Claude and to the WhatsApp group is kept by those services under their own terms.</p>
+
+    <h2>6. What is not done with the data</h2>
+    <ul>
+      <li>The developer does not receive the data, sell it, use it for advertising or use it to train models.</li>
+      <li>The program sends nothing to the developer on its own. If the user chooses to contact the developer for support, the user decides what to send.</li>
+    </ul>
+
+    <h2>7. Google API Services User Data Policy and Claude</h2>
+    <p class="note">Personal Assistant's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+    <p>This is how the program is built: data is passed to Claude only to produce the summary. A condition for enabling the feature is that the user turns off the "Help improve Claude" setting in their Claude account (<a href="https://claude.ai/settings/data-privacy-controls">https://claude.ai/settings/data-privacy-controls</a>). Without the user's confirmation that the setting is off, the program does not download recordings. The developer does not control that setting or how Anthropic handles the data. That handling is governed by Anthropic's terms: <a href="https://www.anthropic.com/legal/privacy">https://www.anthropic.com/legal/privacy</a>.</p>
+    <p>What is sent to the WhatsApp group is governed by WhatsApp's terms: <a href="https://www.whatsapp.com/legal/privacy-policy">https://www.whatsapp.com/legal/privacy-policy</a>.</p>
+
+    <h2>8. Revoking access</h2>
+    <p>The user can revoke the app's access to their Google account at any time: <a href="https://myaccount.google.com/permissions">https://myaccount.google.com/permissions</a>. After revoking, the program can no longer read from Drive.</p>
+
+    <h2>9. Removing the program</h2>
+    <ul>
+      <li>Removing the program ("remove yourself") schedules deletion of the assistant folder and the access token files, within about 3 minutes or at the next Windows sign-in.</li>
+      <li>If the user chooses to keep the memory, the list of processed recordings, the folder ID, the log and the last-error file remain in <code>%USERPROFILE%\.assistant\meetings</code>, and the saved memory remains in <code>%USERPROFILE%\העוזר-זיכרון-שמור</code>.</li>
+      <li>The program does not verify that the deletion completed. The user can check and delete on their own.</li>
+      <li>Removal does not revoke the Google permission. That is done at the link in section 8.</li>
+    </ul>
+
+    <h2>10. Recording participants</h2>
+    <p>Through the Google connection the program only reads recordings Google Meet already saved. The program has a separate option to record meetings on the PC, which does not use Google data. The user is responsible for ensuring the recording and its use are lawful under the law that applies to them.</p>
+
+    <h2>11. Questions, updates and hosting</h2>
+    <p>Questions about this policy: <a href="mailto:mmd9404265@gmail.com">mmd9404265@gmail.com</a>. The data itself is on the user's PC and in their Google account, where the user can view and delete it directly.</p>
+    <p>The last-updated date appears at the top. A new use of Google data will be enabled only after notifying the user and obtaining consent.</p>
+    <p>This page uses no cookies, trackers or analytics. GitHub, which hosts the page, logs access data such as IP address under its own privacy policy.</p>
+  </section>
+</main>
+</body>
+</html>
